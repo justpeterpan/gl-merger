@@ -7,6 +7,7 @@ export default defineEventHandler(async (event) => {
 
   const projectId = project.id
   const lastCommitId = object_attributes.last_commit.id
+  const mergeRequestId = object_attributes.iid
 
   const data = await useGitlabApi(event)<unknown[]>(
     `/${projectId}/repository/commits/${lastCommitId}/diff`
@@ -17,7 +18,7 @@ export default defineEventHandler(async (event) => {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ project, object_attributes, data }),
+    body: JSON.stringify({ project, mergeRequestId, data }),
   })
 
   return { status: 'Processing started' }

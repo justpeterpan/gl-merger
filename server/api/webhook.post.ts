@@ -1,9 +1,7 @@
 import { sendMessages } from '../utils/cf-api'
 
 export default defineEventHandler(async (event) => {
-  const { project, object_attributes, data } = await readBody(event)
-  const projectId = project.id
-  const mergeRequestId = object_attributes.iid
+  const { projectId, mergeRequestId, data } = await readBody(event)
 
   const message = await sendMessages(event, '@cf/meta/llama-3-8b-instruct', [
     {
