@@ -8,4 +8,7 @@ export default defineNuxtConfig({
       token: process.env.CLOUDFLARE_API_TOKEN,
     },
   },
+  nitro: {
+    preset: 'cloudflare-pages',
+  },
 })
