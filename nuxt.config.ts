@@ -7,6 +7,9 @@ export default defineNuxtConfig({
       accountId: process.env.CLOUDFLARE_ACCOUNT_ID,
       token: process.env.CLOUDFLARE_API_TOKEN,
     },
+    gitlab: {
+      apiToken: process.env.GITLAB_API_TOKEN,
+    },
   },
   nitro: {
     preset: 'cloudflare-pages',

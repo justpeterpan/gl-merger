@@ -9,14 +9,6 @@ interface Response {
   success: boolean
 }
 
-const modelId = '@cf/meta/llama-3-8b-instruct'
-const messages = [
-  {
-    role: 'user',
-    content: 'What is the origin of the phrase Hello, World?',
-  },
-]
-
 function useQuery(event: H3Event) {
   const config = useRuntimeConfig(event)
 
