@@ -1,5 +1,9 @@
 export default defineEventHandler(async (event) => {
-  const { project, object_attributes } = await readBody(event)
+  const { project, object_attributes, object_kind } = await readBody(event)
+
+  if (object_kind !== 'merge_request') {
+    return
+  }
 
   const projectId = project.id
   const lastCommitId = object_attributes.last_commit.id
@@ -9,13 +13,13 @@ export default defineEventHandler(async (event) => {
     `/${projectId}/repository/commits/${lastCommitId}/diff`
   )
 
-  const body = JSON.stringify(data + '\n' + 'LGTM')
+  const bodyData = JSON.stringify({ body: data + '\n' + 'LGTM' })
 
   const response = await useGitlabApi(event)<unknown[]>(
     `/${projectId}/merge_requests/${mergeRequestId}/discussions`,
     {
       method: 'POST',
-      body,
+      body: bodyData,
     }
   )
 
