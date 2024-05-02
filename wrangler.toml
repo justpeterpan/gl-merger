@@ -1,4 +1,7 @@
 account_id = "e9e70c5fd0b0ed73fefef70205418512"
 
+name = "webhook test"
+pages_build_output_dir = "./dist"
+
 [ai]
 binding = "AI"
