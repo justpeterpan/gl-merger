@@ -20,6 +20,12 @@ importers:
         specifier: ^4.3.2
         version: 4.3.2(vue@3.4.26)
     devDependencies:
+      '@sentry/node':
+        specifier: ^7.113.0
+        version: 7.113.0
+      '@sentry/profiling-node':
+        specifier: ^7.113.0
+        version: 7.113.0
       nitro-cloudflare-dev:
         specifier: latest
         version: 0.1.4
