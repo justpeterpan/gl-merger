@@ -17,7 +17,7 @@ export default defineNuxtConfig({
       apiToken: process.env.GITLAB_API_TOKEN,
     },
     merja: {
-      baseUrl: process.env.MERJA_BASE_URL,
+      baseUrl: process.env.MERJA_URL,
     },
   },
   nitro: {

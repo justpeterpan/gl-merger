@@ -3,3 +3,6 @@ pages_build_output_dir = "./dist"
 
 [ai]
 binding = "AI"
+
+[vars]
+MERJA_BASE_URL = "1234"
