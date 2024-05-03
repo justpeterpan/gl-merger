@@ -14,7 +14,7 @@ export default defineEventHandler(async (event) => {
     {
       role: 'system',
       content:
-        "Analyze the user's code and provide feedback. Remember to be kind and helpful. Give them a chance to learn and grow. But also be honest and direct. They need to know what they did wrong and how to fix it. But also what they did right. They need to know what they did well and how to do more of it.",
+        'Perform a comprehensive review of the code diff of a commit provided. Evaluate the code for functionality, bug detection, coding standards, and best practices.',
     },
   ])
 

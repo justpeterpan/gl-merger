@@ -1,6 +1,7 @@
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig(event)
   const { project, object_attributes, object_kind } = await readBody(event)
+  // const { projectId, lastCommitId, mergeRequestId } = await readBody(event)
 
   if (object_kind !== 'merge_request') {
     return
@@ -14,14 +15,14 @@ export default defineEventHandler(async (event) => {
 
   event.node.res.end('Webhook received and being processed.')
 
-  await $fetch(config.merja.baseUrl, {
+  $fetch(config.merja.baseUrl, {
     method: 'POST',
     body: bodyData,
   }).catch((err) => {
     console.error('Error processing webhook:', err)
   })
 
-  return {
-    status: `Processing started: ${bodyData}, for ${config.merja.baseUrl}`,
-  }
+  // return {
+  //   status: `Processing started: ${bodyData}, for ${config.merja.baseUrl}`,
+  // }
 })
