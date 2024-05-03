@@ -12,10 +12,7 @@ export default defineEventHandler(async (event) => {
 
   const bodyData = JSON.stringify({ projectId, mergeRequestId, lastCommitId })
 
-  $fetch(config.merja.baseUrl, {
-    method: 'POST',
-    body: bodyData,
-  })
+  $fetch(config.merja.baseUrl)
 
   return {
     status: `Processing started: ${bodyData}, for ${config.merja.baseUrl}`,
