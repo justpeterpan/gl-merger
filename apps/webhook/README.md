@@ -1,3 +1,3 @@
-# WIP
+# webhook
 
-inspired by https://www.youtube.com/watch?v=ORYNnirNgSM
+Gets triggered by GitLab and calls merja.
