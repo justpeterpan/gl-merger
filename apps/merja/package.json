@@ -16,7 +16,6 @@
   },
   "devDependencies": {
     "@sentry/node": "^7.113.0",
-    "@sentry/profiling-node": "^7.113.0",
     "nitro-cloudflare-dev": "latest",
     "nuxt": "^3.11.2",
     "wrangler": "^3.53.0"

@@ -23,9 +23,6 @@ importers:
       '@sentry/node':
         specifier: ^7.113.0
         version: 7.113.0
-      '@sentry/profiling-node':
-        specifier: ^7.113.0
-        version: 7.113.0
       nitro-cloudflare-dev:
         specifier: latest
         version: 0.1.4
@@ -49,9 +46,6 @@ importers:
         version: 4.3.2(vue@3.4.26)
     devDependencies:
       '@sentry/node':
-        specifier: ^7.113.0
-        version: 7.113.0
-      '@sentry/profiling-node':
         specifier: ^7.113.0
         version: 7.113.0
       nitro-cloudflare-dev:
@@ -996,11 +990,6 @@ packages:
   '@sentry/node@7.113.0':
     resolution: {integrity: sha512-Vam4Ia0I9fhVw8GJOzcLP7MiiHJSKl8L9LzLMMLG3+2/dFnDQOyS7sOfk3GqgpwzqPiusP9vFu7CFSX7EMQbTg==}
     engines: {node: '>=8'}
-
-  '@sentry/profiling-node@7.113.0':
-    resolution: {integrity: sha512-ABEBLNaFwKIDZHPmvlFPCyrhdKkFRYyGeTijKuQ/fU0q81CCNnh+FJphfJTh9Js1afJ9ShFxk2KZNGzipyo8Zw==}
-    engines: {node: '>=8.0.0'}
-    hasBin: true
 
   '@sentry/types@7.113.0':
     resolution: {integrity: sha512-PJbTbvkcPu/LuRwwXB1He8m+GjDDLKBtu3lWg5xOZaF5IRdXQU2xwtdXXsjge4PZR00tF7MO7X8ZynTgWbYaew==}
@@ -2619,10 +2608,6 @@ packages:
     peerDependenciesMeta:
       xml2js:
         optional: true
-
-  node-abi@3.62.0:
-    resolution: {integrity: sha512-CPMcGa+y33xuL1E0TcNIu4YyaZCxnnvkVaEXrsosR3FxN+fV8xvb7Mzpb7IgKler10qeMkE6+Dp8qJhpzdq35g==}
-    engines: {node: '>=10'}
 
   node-addon-api@7.1.0:
     resolution: {integrity: sha512-mNcltoe1R8o7STTegSOHdnJNN7s5EUvhoS7ShnTHDyOSd+8H+UdWODq6qSv67PjC8Zc5JRT8+oLAMCr0SIXw7g==}
@@ -4892,11 +4877,6 @@ snapshots:
       '@sentry/types': 7.113.0
       '@sentry/utils': 7.113.0
 
-  '@sentry/profiling-node@7.113.0':
-    dependencies:
-      detect-libc: 2.0.3
-      node-abi: 3.62.0
-
   '@sentry/types@7.113.0': {}
 
   '@sentry/utils@7.113.0':
@@ -6801,10 +6781,6 @@ snapshots:
       - idb-keyval
       - supports-color
       - uWebSockets.js
-
-  node-abi@3.62.0:
-    dependencies:
-      semver: 7.6.0
 
   node-addon-api@7.1.0: {}
 

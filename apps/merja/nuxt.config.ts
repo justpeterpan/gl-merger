@@ -26,7 +26,4 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'cloudflare-pages',
   },
-  vite: {
-    optimizeDeps: { exclude: ['@sentry/profiling-node'] },
-  },
 })
