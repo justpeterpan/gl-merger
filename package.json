@@ -1,21 +1,9 @@
 {
-  "name": "nuxt-app",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
-  },
-  "dependencies": {
-    "vue": "^3.4.26",
-    "vue-router": "^4.3.2"
-  },
-  "devDependencies": {
-    "nitro-cloudflare-dev": "latest",
-    "nuxt": "^3.11.2",
-    "wrangler": "^3.53.0"
-  }
+  "name": "merger",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

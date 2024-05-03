@@ -1,4 +1,4 @@
-import type { H3Event } from 'h3'
+import { H3Event } from 'h3'
 
 export function useGitlabApi(event: H3Event) {
   const config = useRuntimeConfig(event)

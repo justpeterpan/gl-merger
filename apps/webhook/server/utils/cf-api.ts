@@ -1,4 +1,4 @@
-import type { H3Event } from 'h3'
+import { H3Event } from 'h3'
 
 interface Response {
   errors?: unknown[]
