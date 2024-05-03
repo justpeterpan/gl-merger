@@ -1,8 +1,0 @@
-name = "webhook test"
-pages_build_output_dir = "./dist"
-
-[ai]
-binding = "AI"
-
-[env.preview]
-vars = { MERJA_BASE_URL = "5678" }

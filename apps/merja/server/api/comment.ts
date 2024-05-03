@@ -1,9 +1,10 @@
 export default defineEventHandler(async (event) => {
-  const { projectId, mergeRequestId, lastCommitId } = await readBody(event)
+  // const { projectId, mergeRequestId, lastCommitId } = await readBody(event)
+  const config = useRuntimeConfig(event)
 
-  const data = await useGitlabApi(event)<unknown[]>(
-    `/${projectId}/repository/commits/${lastCommitId}/diff`
-  )
+  // const data = await useGitlabApi(event)<unknown[]>(
+  //   `/${projectId}/repository/commits/${lastCommitId}/diff`
+  // )
 
   // const message = await sendMessages(event, '@cf/meta/llama-3-8b-instruct', [
   //   {
@@ -21,7 +22,7 @@ export default defineEventHandler(async (event) => {
   const bodyData = JSON.stringify({ body: 'hello world' })
 
   await useGitlabApi(event)<unknown[]>(
-    `/${projectId}/merge_requests/${mergeRequestId}/discussions`,
+    `/${config.gitlab.projectId}/merge_requests/${config.gitlab.mergeRequestId}/discussions`,
     {
       method: 'POST',
       body: bodyData,

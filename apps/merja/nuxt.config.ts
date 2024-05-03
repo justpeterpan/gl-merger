@@ -15,6 +15,8 @@ export default defineNuxtConfig({
     },
     gitlab: {
       apiToken: process.env.GITLAB_API_TOKEN,
+      projectId: process.env.PROJECT_ID,
+      mergeRequestId: process.env.MERGE_REQUEST_ID,
     },
   },
   nitro: {
