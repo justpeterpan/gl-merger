@@ -4,9 +4,5 @@ pages_build_output_dir = "./dist"
 [ai]
 binding = "AI"
 
-[vars]
-MERJA_BASE_URL = "1234"
-
 [env.preview]
-name = "webhook test preview"
 vars = { MERJA_BASE_URL = "5678" }
