@@ -9,6 +9,12 @@ export default defineNuxtConfig({
   },
   modules: ['nitro-cloudflare-dev'],
   runtimeConfig: {
+    public: {
+      sentry: {
+        dsn: process.env.PUBLIC_SENTRY_DSN,
+        environment: process.env.PUBLIC_SENTRY_ENVIRONMENT,
+      },
+    },
     cloudflare: {
       accountId: process.env.CLOUDFLARE_ACCOUNT_ID,
       token: process.env.CLOUDFLARE_API_TOKEN,

@@ -1,17 +1,20 @@
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig(event)
-  const { project, object_attributes, object_kind } = await readBody(event)
-  // const { projectId, lastCommitId, mergeRequestId } = await readBody(event)
+  const sentry = event.context.$sentry
 
-  if (object_kind !== 'merge_request') {
-    return
-  }
+  // const { project, object_attributes, object_kind } = await readBody(event)
+  const { projectId, lastCommitId, mergeRequestId } = await readBody(event)
 
-  const projectId = project.id
-  const lastCommitId = object_attributes.last_commit.id
-  const mergeRequestId = object_attributes.iid
+  // if (object_kind !== 'merge_request') {
+  //   return
+  // }
+
+  // const projectId = project.id
+  // const lastCommitId = object_attributes.last_commit.id
+  // const mergeRequestId = object_attributes.iid
 
   const bodyData = JSON.stringify({ projectId, mergeRequestId, lastCommitId })
+  sentry.captureMessage('Webhook received and being processed.')
 
   event.node.res.end('Webhook received and being processed.')
 
@@ -22,5 +25,5 @@ export default defineEventHandler(async (event) => {
     console.error('Error processing webhook:', err)
   })
 
-  return
+  // return
 })
