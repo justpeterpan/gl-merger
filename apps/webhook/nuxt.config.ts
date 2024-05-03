@@ -16,6 +16,9 @@ export default defineNuxtConfig({
     gitlab: {
       apiToken: process.env.GITLAB_API_TOKEN,
     },
+    merja: {
+      baseUrl: process.env.MERJA_BASE_URL,
+    },
   },
   nitro: {
     preset: 'cloudflare-pages',

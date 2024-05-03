@@ -1,4 +1,5 @@
 export default defineEventHandler(async (event) => {
+  const config = useRuntimeConfig(event)
   const { project, object_attributes, object_kind } = await readBody(event)
 
   if (object_kind !== 'merge_request') {
@@ -9,16 +10,12 @@ export default defineEventHandler(async (event) => {
   const lastCommitId = object_attributes.last_commit.id
   const mergeRequestId = object_attributes.iid
 
-  const data = await useGitlabApi(event)<unknown[]>(
-    `/${projectId}/repository/commits/${lastCommitId}/diff`
-  )
-
-  $fetch('/api/webhook', {
+  $fetch(config.merja.baseUrl, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ project, mergeRequestId, data }),
+    body: JSON.stringify({ projectId, mergeRequestId, lastCommitId }),
   })
 
   return { status: 'Processing started' }
