@@ -22,7 +22,5 @@ export default defineEventHandler(async (event) => {
     console.error('Error processing webhook:', err)
   })
 
-  // return {
-  //   status: `Processing started: ${bodyData}, for ${config.merja.baseUrl}`,
-  // }
+  return
 })
