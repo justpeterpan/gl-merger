@@ -1,0 +1,22 @@
+{
+  "name": "webhuk",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "unstorage": "^1.10.2",
+    "vue": "^3.4.26",
+    "vue-router": "^4.3.2"
+  },
+  "devDependencies": {
+    "nitro-cloudflare-dev": "latest",
+    "nuxt": "^3.11.2",
+    "wrangler": "^3.53.0"
+  }
+}

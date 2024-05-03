@@ -1,5 +1,3 @@
-import { sendMessages } from '../utils/cf-api'
-
 export default defineEventHandler(async (event) => {
   const { projectId, mergeRequestId, data } = await readBody(event)
 
