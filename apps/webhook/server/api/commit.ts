@@ -12,9 +12,13 @@ export default defineEventHandler(async (event) => {
 
   const bodyData = JSON.stringify({ projectId, mergeRequestId, lastCommitId })
 
+  event.node.res.end('Webhook received and being processed.')
+
   await $fetch(config.merja.baseUrl, {
     method: 'POST',
     body: bodyData,
+  }).catch((err) => {
+    console.error('Error processing webhook:', err)
   })
 
   return {
