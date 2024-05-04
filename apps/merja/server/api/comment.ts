@@ -1,10 +1,5 @@
 export default defineEventHandler(async (event) => {
   const { projectId, mergeRequestId, lastCommitId } = await readBody(event)
-  const sentry = event.context.$sentry
-
-  sentry.captureMessage(
-    `comment event received and being processed. ${projectId}`
-  )
   const data = await useGitlabApi(event)<unknown[]>(
     `/${projectId}/repository/commits/${lastCommitId}/diff`
   )
