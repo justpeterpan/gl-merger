@@ -23,6 +23,7 @@ logs
 .env.*
 !.env.example
 
+.wrangler
 mergerequest.json
 mergerequest2.json
 push.json

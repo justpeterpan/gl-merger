@@ -1,0 +1,5 @@
+name = 'gl-merger'
+
+[[r2_buckets]]
+binding = 'r2'
+bucket_name = 'logging'
