@@ -23,7 +23,7 @@ export default defineEventHandler(async (event) => {
     {
       role: 'system',
       content:
-        'Perform a comprehensive review of the code diff of a commit provided. Evaluate the code for functionality, bug detection, coding standards, and best practices.',
+        'Perform a comprehensive review of the code diff of a commit provided. Evaluate the code for functionality, bug detection, coding standards, and best practices. Offer suggestions and point out bugs. At the end suggest a commit message based on the diff.',
     },
   ])
 
