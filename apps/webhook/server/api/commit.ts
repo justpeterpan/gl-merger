@@ -11,12 +11,12 @@ export default defineEventHandler(async (event) => {
   const mergeRequestId = object_attributes.iid
   const timestamp = Math.floor(Date.now() / 1000)
 
-  await event.context.cloudflare.env.kv.put('timestamp_projectId', projectId)
-  await event.context.cloudflare.env.kv.put('timestamp_lastCommitId', lastCommitId)
-  await event.context.cloudflare.env.kv.put('timestamp_mergeRequestId', mergeRequestId)
+  await event.context.cloudflare.env.kv.put(`${timestamp}_projectId`, projectId)
+  await event.context.cloudflare.env.kv.put(`${timestamp}_lastCommitId`, lastCommitId)
+  await event.context.cloudflare.env.kv.put(`${timestamp}_mergeRequestId`, mergeRequestId)
   await event.context.cloudflare.env.queue.send(timestamp)
 
-  await event.context.cloudflare.env.queue.event.node.res.end(
+  event.node.res.end(
     'Webhook received and being processed.'
   )
 })
