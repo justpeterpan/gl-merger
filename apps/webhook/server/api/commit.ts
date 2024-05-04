@@ -1,3 +1,4 @@
+import { H3Event } from 'h3'
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig(event)
   const { project, object_attributes, object_kind } = await readBody(event)
@@ -29,15 +30,27 @@ export default defineEventHandler(async (event) => {
     'calling fetch'
   )
 
-  $fetch(config.merja.baseUrl, {
-    method: 'POST',
-    body: bodyData,
-  }).catch((err) => {
-    event.context.cloudflare.env.kv.put(
-      `${new Date()} error`,
-      JSON.stringify(err)
-    )
-  })
+  callUrl(config.merja.baseUrl, bodyData, event)
+
+  // $fetch(config.merja.baseUrl, {
+  //   method: 'POST',
+  //   body: bodyData,
+  // }).catch((err) => {
+  //   event.context.cloudflare.env.kv.put(
+  //     `${new Date()} error`,
+  //     JSON.stringify(err)
+  //   )
+  // })
 
   // return
 })
+
+function callUrl(url: string, data: string, event: H3Event) {
+  event.context.cloudflare.env.kv.put(
+    `${new Date()} inside fetch`,
+    `calling fetch ${url}, ${data}`
+  )
+  $fetch(url, {
+    body: data,
+  })
+}
