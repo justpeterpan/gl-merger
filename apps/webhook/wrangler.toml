@@ -3,3 +3,7 @@ name = 'gl-merger'
 [[r2_buckets]]
 binding = 'r2'
 bucket_name = 'logging'
+
+[[kv_namespaces]]
+binding = 'kv'
+id = 'c1069268b3524530adca386436fee5a3'
