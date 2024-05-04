@@ -5,10 +5,9 @@ export default defineEventHandler(async (event) => {
 
   if (event.context.cloudflare.env.r2) {
     console.log('puuuuuuuuush')
-    await event.context.cloudflare.env.r2.put(
-      'start',
-      'Webhook received and being processed.'
-    )
+    await event.context.cloudflare.env.r2.put('start', {
+      start: 'start processing',
+    })
   }
 
   if (object_kind !== 'merge_request') {
@@ -19,9 +18,10 @@ export default defineEventHandler(async (event) => {
   const lastCommitId = object_attributes.last_commit.id
   const mergeRequestId = object_attributes.iid
 
+  const varsData = `projectId: ${projectId}, mergeRequestId: ${mergeRequestId}, lastCommitId: ${lastCommitId}`
   await event.context.cloudflare.env.r2.put(
     'vars',
-    `projectId: ${projectId}, mergeRequestId: ${mergeRequestId}, lastCommitId: ${lastCommitId}`
+    new Blob([varsData], { type: 'text/plain' })
   )
 
   const bodyData = JSON.stringify({ projectId, mergeRequestId, lastCommitId })
