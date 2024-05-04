@@ -1,7 +1,17 @@
 export default defineEventHandler(async (event) => {
+  await event.context.cloudflare.env.kv.put(
+    `${new Date()} start merja`,
+    'start'
+  )
   const { projectId, mergeRequestId, lastCommitId } = await readBody(event)
+
   const data = await useGitlabApi(event)<unknown[]>(
     `/${projectId}/repository/commits/${lastCommitId}/diff`
+  )
+
+  await event.context.cloudflare.env.kv.put(
+    `{new Date()} data merja`,
+    JSON.stringify(data)
   )
 
   const message = await sendMessages(event, '@cf/meta/llama-3-8b-instruct', [
