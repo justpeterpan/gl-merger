@@ -18,14 +18,14 @@ export default defineEventHandler(async (event) => {
 
   const bodyData = JSON.stringify({ projectId, mergeRequestId, lastCommitId })
   await event.context.cloudflare.env.kv.put(
-    `{new Date()} data merger`,
+    `${new Date()} data merger`,
     bodyData
   )
 
   event.node.res.end('Webhook received and being processed.')
 
   await event.context.cloudflare.env.kv.put(
-    `{new Date()} fetch`,
+    `${new Date()} fetch`,
     'calling fetch'
   )
 
@@ -33,7 +33,10 @@ export default defineEventHandler(async (event) => {
     method: 'POST',
     body: bodyData,
   }).catch((err) => {
-    console.error('Error processing webhook:', err)
+    event.context.cloudflare.env.kv.put(
+      `${new Date()} error`,
+      JSON.stringify(err)
+    )
   })
 
   // return
