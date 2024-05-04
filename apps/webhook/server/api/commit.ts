@@ -5,9 +5,10 @@ export default defineEventHandler(async (event) => {
 
   if (event.context.cloudflare.env.r2) {
     console.log('puuuuuuuuush')
-    await event.context.cloudflare.env.r2.put('start', {
-      start: 'start processing',
-    })
+    await event.context.cloudflare.env.r2.put(
+      'start',
+      new Blob(['start'], { type: 'text/plain' })
+    )
   }
 
   if (object_kind !== 'merge_request') {
